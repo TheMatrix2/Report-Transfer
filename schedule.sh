@@ -2,7 +2,7 @@
 
 mkdir -p ~/yandex_metrika_etl
 
-cp yandex-metrika-to-mariadb.py ~/yandex_metrika_etl/
+cp -r scripts ~/yandex_metrika_etl/
 
 mkdir -p ~/yandex_metrika_etl/logs
 
@@ -11,7 +11,7 @@ cat > ~/yandex_metrika_etl/run_etl.sh << 'EOF'
 # Script to run the ETL process and log output
 
 # Set the path to the Python script
-SCRIPT_PATH=~/yandex_metrika_etl/yandex-metrika-to-mariadb.py
+SCRIPT_PATH=~/yandex_metrika_etl/scripts/main.py
 
 # Set the log file path
 LOG_DIR=~/yandex_metrika_etl/logs

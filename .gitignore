@@ -1,3 +1,6 @@
 .venv/
 .idea/
-test.py
+reports/
+test&debug/test.py
+metrika_etl.log
+.env
