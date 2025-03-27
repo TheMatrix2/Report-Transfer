@@ -38,7 +38,7 @@ def init_database():
                     bounce_rate FLOAT,
                     page_depth FLOAT,
                     avg_visit_duration TIME,
-                    PRIMARY KEY (stat_date)
+                    PRIMARY KEY (stat_date, traffic_source)
                 )
             ''',
             'devices': '''
@@ -48,7 +48,7 @@ def init_database():
                     visits INT,
                     users INT,
                     bounce_rate FLOAT,
-                    PRIMARY KEY (stat_date)
+                    PRIMARY KEY (stat_date, device_category)
                 )
             ''',
             'geography': '''
@@ -58,7 +58,7 @@ def init_database():
                     city VARCHAR(100),
                     visits INT,
                     users INT,
-                    PRIMARY KEY (stat_date)
+                    PRIMARY KEY (stat_date, country, city)
                 )
             ''',
             'search_phrases': '''
@@ -66,7 +66,7 @@ def init_database():
                     stat_date DATE,
                     search_phrase VARCHAR(1024),
                     visits INT,
-                    PRIMARY KEY (stat_date)
+                    PRIMARY KEY (stat_date, search_phrase(255))
                 )
             '''
         }
