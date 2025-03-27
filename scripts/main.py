@@ -3,9 +3,10 @@ import mysql.connector
 from io import StringIO
 import sys
 
-from scripts.logger import logger
-from scripts.metrika import get_date_range, get_metrika_report, counter_id
-from scripts.database import init_database, DB_CONFIG
+from config import logger
+from config import COUNTER_ID as counter_id
+from metrika import get_date_range, get_metrika_report
+from database import init_database, DB_CONFIG
 
 
 # Загрузка csv в базу данных

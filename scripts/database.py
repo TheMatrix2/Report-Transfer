@@ -1,16 +1,5 @@
 import mysql.connector
-import os
-
-from scripts.logger import logger
-
-DB_CONFIG = {
-    'host': str(os.getenv('DB_HOST', 'localhost')),
-    'user': str(os.getenv('DB_USER', 'metrika_user')),
-    'password': str(os.getenv('DB_PASSWORD', 'your_secure_password')),
-    'database': str(os.getenv('DB_NAME', 'yandex_metrika')),
-    'port': int(os.getenv('DB_PORT', 3306))
-}
-
+from config import DB_CONFIG, logger
 
 def init_database():
     try:
@@ -49,7 +38,7 @@ def init_database():
                     bounce_rate FLOAT,
                     page_depth FLOAT,
                     avg_visit_duration TIME,
-                    PRIMARY KEY (stat_date, traffic_source)
+                    PRIMARY KEY (stat_date)
                 )
             ''',
             'devices': '''
@@ -59,7 +48,7 @@ def init_database():
                     visits INT,
                     users INT,
                     bounce_rate FLOAT,
-                    PRIMARY KEY (stat_date, device_category)
+                    PRIMARY KEY (stat_date)
                 )
             ''',
             'geography': '''
@@ -69,7 +58,7 @@ def init_database():
                     city VARCHAR(100),
                     visits INT,
                     users INT,
-                    PRIMARY KEY (stat_date, country, city)
+                    PRIMARY KEY (stat_date)
                 )
             ''',
             'search_phrases': '''
@@ -77,7 +66,7 @@ def init_database():
                     stat_date DATE,
                     search_phrase VARCHAR(1024),
                     visits INT,
-                    PRIMARY KEY (stat_date, search_phrase(255))
+                    PRIMARY KEY (stat_date)
                 )
             '''
         }

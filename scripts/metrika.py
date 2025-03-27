@@ -1,16 +1,7 @@
 import requests
 import datetime
 from urllib.parse import urlencode
-import os
-
-from scripts.logger import logger
-
-# API конфигурация
-url = 'https://api-metrika.yandex.ru/stat/v1/data.csv'
-token = str(os.getenv('TOKEN'))
-headers = {'Authorization': f'OAuth {token}'}
-
-counter_id = str(os.getenv('COUNTER_ID'))
+from config import API_URL, API_HEADERS, logger
 
 
 def get_date_range(days=30):
@@ -21,10 +12,10 @@ def get_date_range(days=30):
 
 
 def get_metrika_report(params):
-    full_url = f"{url}?{urlencode(params)}"
+    full_url = f"{API_URL}?{urlencode(params)}"
     try:
         logger.info(f"Requesting URL: {full_url}")
-        response = requests.get(full_url, headers=headers)
+        response = requests.get(full_url, headers=API_HEADERS)
         response.raise_for_status()
 
         response_text = response.text
