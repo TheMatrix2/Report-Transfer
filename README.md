@@ -5,7 +5,7 @@
 git clone https://github.com/TheMatrix2/Report-Transfer
 ```
 ```shell
-cd Report-transfer
+cd Report-Transfer
 ```
 _Environment settings in .env file_
 ```shell
