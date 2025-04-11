@@ -1,4 +1,4 @@
-# Report transfer from Yandex Metrika to MariaDB
+# Report transfer from Yandex Metrika (API) to MariaDB
 ## Setting up (Linux):
 
 ```shell
